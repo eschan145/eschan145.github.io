@@ -1,6 +1,7 @@
 body {
     font-family: sans-serif;
     padding: 2rem;
+padding-top: 100px;
 }
 
 h1 {
@@ -9,18 +10,68 @@ h1 {
 
 .social-icons {
     display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin-top: 2rem;
+gap: 1.5rem;
 }
 
 .social-icons a {
     text-decoration: none;
-    color: #333;
-    font-size: 3rem;
+    color: #333333;
+    font-size: 2rem;
     transition: color 0.3s;
 }
 
 .social-icons a:hover {
-    color: #0077b5;
+    color: #111111;
 }
+
+button {
+  width: 150px;
+  height: 50px;
+  font-size: 15px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  border: 2px solid #ccc;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.4s ease, transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+margin-right: 50px;
+}
+
+button:hover {
+  background-color: white;
+  color: black;
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+  transform: scale(0.99);
+}
+
+button i {
+  font-size: 1.2rem;
+}
+
+header {
+  background-color: #1F80C1;
+  height: 75px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 2rem;
+}
+
+
+
+
+* {
+  font-family: 'Segoe UI', sans-serif;
+}
+
