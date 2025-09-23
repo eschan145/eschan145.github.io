@@ -1,2 +1,26 @@
-body { font-family: sans-serif; padding: 2rem; }
-h1 { color: #333; }
+body {
+    font-family: sans-serif;
+    padding: 2rem;
+}
+
+h1 {
+    color: #333;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.social-icons a {
+    text-decoration: none;
+    color: #333;
+    font-size: 3rem;
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: #0077b5;
+}
