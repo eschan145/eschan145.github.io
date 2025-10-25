@@ -1,35 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>Website</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  </head>
-  <body>
-    <h1>Welcome</h1>
-  <header class="top-bar">
-<div class="social-icons">
-      <a href="https://www.linkedin.com/in/ethan-chan-wa" target="_blank" title="LinkedIn">
-        <i class="fab fa-linkedin"></i>
-      </a>
-      <a href="https://github.com/eschan145" target="_blank" title="GitHub">
-        <i class="fab fa-github"></i>
-      </a>
-      <a href="mailto:esamuelchan@gmail.com" title="Email">
-        <i class="fas fa-envelope"></i>
-      </a>
-<a href="mailto:esamuelchan@gmail.com">
-  <button>
-    <i class="fas fa-envelope"></i> Contact Me
-  </button>
-</a>
-    </div>
-</header>
-    
 
+<head>
+	<meta charset="UTF-8">
+	<title>Website</title>
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
 
+<body>
+	<header class="top-bar">
+		<nav class="nav-links">
+			<a href="about.html" class="nav-item">About</a>
+			<a href="projects.html" class="nav-item">Projects</a>
+		</nav>
+	</header>
+	<div class="mainframe">
+		<div class="introduction">
+			<h1>Hello!</h1>
+			<p>I'm Ethan, a sophomore at Nikola Tesla STEM High School. I program software, play music, and
+				animate
+				3D scenes.</p>
+		</div>
+		<div class="main-box">
+			<main>
 
-  </body>
+			</main>
+
+			<footer class="bottom-bar">
+				<div class="social-icons">
+					<a href="https://www.linkedin.com/in/ethan-chan-wa" target="_blank" title="LinkedIn">
+						<i class="fab fa-linkedin"></i>
+					</a>
+					<a href="https://github.com/eschan145" target="_blank" title="GitHub">
+						<i class="fab fa-github"></i>
+					</a>
+					<button id="openDialog" class="btn">
+						<i class="fas fa-envelope"></i> Contact Me
+					</button>
+				</div>
+			</footer>
+
+			<dialog id="linkDialog">
+				<button id="closeDialog" class="close-btn">
+					<i class="fas fa-xmark"></i>
+				</button>
+				<h3>Contact Information</h3>
+				<hr />
+				<div class="contact-info">
+					<p><i class="fas fa-phone"></i> +1 (425)-598-3588</p>
+					<p><i class="fas fa-envelope"></i>
+						<a href="mailto:esamuelchan@gmail.com">esamuelchan@gmail.com</a>
+					</p>
+					<p><i class="fas fa-map-marker-alt"></i> Redmond, WA, United States</p>
+				</div>
+			</dialog>
+		</div>
+	</div>
+
+	<script>
+		const dialog = document.getElementById('linkDialog');
+		document.getElementById('openDialog').addEventListener('click', () => {
+			dialog.showModal();
+		});
+		document.getElementById('closeDialog').addEventListener('click', () => {
+			dialog.close();
+		});
+	</script>
+</body>
 
 </html>
