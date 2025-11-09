@@ -23,8 +23,8 @@ body {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    box-shadow: 0 10px 20px 5px rgba(0,0,0,0.2);
-	height: 80px;
+    box-shadow: 0 10px 20px 5px rgba(0, 0, 0, 0.2);
+    height: 80px;
 }
 
 h1 {
@@ -44,22 +44,23 @@ hr {
 }
 
 
-strong, b {
+strong,
+b {
     font-weight: 600;
 }
 
-.item {
+.item {}
 
-}
 .score {
     float: right;
     padding-left: 20px;
     font-family: "Intel One Mono";
     font-size: 36pt;
-  position: relative;
-  top: 50%;
-  transform: translateY(calc(-50% + 5px));
+    position: relative;
+    top: 50%;
+    transform: translateY(calc(-50% + 5px));
 }
+
 .nav-links {
     display: flex;
     gap: 40px;
@@ -112,7 +113,7 @@ strong, b {
     display: flex;
     gap: 30px;
     align-items: center;
-        margin-top: 40px;
+    margin-top: 40px;
     display: flex;
     justify-content: center;
     padding: 20px 0;
@@ -128,8 +129,9 @@ strong, b {
     transition: color 0.3s ease;
 }
 
-.social-icons a:hover, .social-icons button:hover {
-	box-shadow: #333;
+.social-icons a:hover,
+.social-icons button:hover {
+    box-shadow: #333;
 }
 
 .btn {
@@ -138,15 +140,15 @@ strong, b {
     gap: 8px;
     padding: 12px 40px;
     border-radius: 12px;
-	border-width: 0px;
+    border-width: 0px;
     background-color: #DBDFE5;
-	color: black;
+    color: black;
     font-size: 13pt;
 }
 
 .btn:hover {
     background-color: #C3C7CC;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
 }
 
@@ -154,7 +156,7 @@ dialog {
     border: none;
     border-radius: 12px;
     padding: 20px 30px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     width: 350px;
     max-width: 90%;
 }
@@ -189,5 +191,67 @@ dialog {
     transition: color 0.3s ease;
 }
 
-.contact-info a:hover {
+.skills-container {
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.skill-card {
+    width: 160px;
+    height: 160px;
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.skill-card div {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: transform 1.5s;
+    backface-visibility: hidden;
+    padding: 15px;
+    font-weight: 600;
+}
+
+.skill-front {
+    background-color: #ebebeb;
+    border: 1px solid #dedede;
+    gap: 10px;
+}
+
+.skill-card .skill-back {
+    background-color: white;
+    /* blue */
+    transform: rotateY(180deg);
+    text-align: center;
+    font-size: 13px;
+    font-weight: 400;
+}
+
+.skill-card:hover .skill-front {
+    transform: rotateY(180deg);
+}
+
+.skill-card:hover .skill-back {
+    transform: rotateY(0deg);
+}
+
+.skill-card .skill-front,
+.skill-card .skill-back {
+    position: absolute;
+    background-color: #ebebeb;
+    border: 1px solid #dedede;
+}
+
+.skill-front p {
+    margin-top: auto;
+    margin-bottom: 0px;
 }
