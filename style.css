@@ -229,7 +229,6 @@ dialog {
 
 .skill-card .skill-back {
     background-color: white;
-    /* blue */
     transform: rotateY(180deg);
     text-align: center;
     font-size: 13px;
