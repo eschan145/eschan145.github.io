@@ -23,9 +23,23 @@
 				interested in medicine, the intersection of computer hardware and software, mathematics, and
 				engineering.</p>
 		</div>
+
+		<div class="toc">
+			<div class="toc-header" onclick="toggleTOC()">
+				<h2>Table of Contents</h2><i id="toc-arrow" class="fas fa-chevron-down"></i>
+			</div>
+			<hr>
+			<ul id="toc-list">
+				<li><a href="#about-me">About me</a></li>
+				<li><a href="#education">Education</a></li>
+				<li><a href="#skills">Skills</a></li>
+				<li><a href="#test-scores">Test Scores</a></li>
+			</ul>
+		</div>
+
 		<div class="box">
 			<main>
-				<h1>About me</h1>
+				<h1 id="about-me">About me</h1>
 				<div style="height: 20px;"></div>
 				<p style="padding-bottom: 15px">I have a variety of technical and creative interests. I am skilled in
 					programming, primarily in the languages C++ and Python. I also do 3D design and animation and love
@@ -51,7 +65,7 @@
 			</footer>
 		</div>
 		<div class="box">
-			<h2>Education</h2>
+			<h2 id="education">Education</h2>
 			<div style="height: 20px;"></div>
 			<div style="display: flex; align-items: flex-start; gap: 10px;">
 				<img src="tshs.png" width="24" style="margin-top: 8px">
@@ -114,7 +128,7 @@
 			</div>
 		</div>
 		<div class="box">
-			<h2>Technology Skills and Frameworks</h2>
+			<h2 id="skills">Technology Skills and Frameworks</h2>
 			<div style="height: 20px;"></div>
 			<div class="skills-container">
 				<div class="skill-card">
@@ -202,11 +216,31 @@
 
 				<div class="skill-card">
 					<div class="skill-front">
-						<img src="maya.png" width="72">
+						<img src="maya.png" width="100">
 						<p>Autodesk Maya</p>
 					</div>
 					<div class="skill-back">
 						<p>Created crowd simulations with ragdolls and projectiles.</p>
+					</div>
+				</div>
+
+				<div class="skill-card">
+					<div class="skill-front">
+						<img src="fusion360.png" width="72">
+						<p>Autodesk Fusion</p>
+					</div>
+					<div class="skill-back">
+						<p>Proficient in CAD modelling with Fusion 360.</p>
+					</div>
+				</div>
+
+				<div class="skill-card">
+					<div class="skill-front">
+						<img src="ps.png" width="72">
+						<p>Photoshop</p>
+					</div>
+					<div class="skill-back">
+						<p>Proficient in editing, retouching, and designing graphics and photos.</p>
 					</div>
 				</div>
 
@@ -219,11 +253,21 @@
 						<p>Currently in progress of developing a rendering engine with DirectX 11.</p>
 					</div>
 				</div>
+
+				<div class="skill-card">
+					<div class="skill-front">
+						<img src="git.png" width="72">
+						<p>Git</p>
+					</div>
+					<div class="skill-back">
+						<p>Utilized Git for nearly all programming projects.</p>
+					</div>
+				</div>
 			</div>
 		</div>
 
 		<div class="box">
-			<h2>Test scores</h2>
+			<h2 id="test-scores">Test scores</h2>
 			<div style="height: 20px;"></div>
 			<div>
 				<p>
@@ -269,5 +313,34 @@
 		<p>This webpage design takes much inspiration from that of LinkedIn.</p>
 	</div>
 </body>
+<script>
+	function toggleTOC() {
+		const tocList = document.getElementById('toc-list');
+		const arrow = document.getElementById('toc-arrow');
+		tocList.classList.toggle('collapsed');
+		arrow.classList.toggle('fa-chevron-down');
+		arrow.classList.toggle('fa-chevron-up');
+	}
+
+	const sections = document.querySelectorAll('h1, h2');
+	const tocLinks = document.querySelectorAll('.toc a');
+
+	window.addEventListener('scroll', () => {
+		let current = '';
+		sections.forEach(section => {
+			const sectionTop = section.offsetTop - 100;
+			if (scrollY >= sectionTop) {
+				current = section.getAttribute('id');
+			}
+		});
+
+		tocLinks.forEach(link => {
+			link.classList.remove('active');
+			if (link.getAttribute('href') === '#' + current) {
+				link.classList.add('active');
+			}
+		});
+	});
+</script>
 
 </html>

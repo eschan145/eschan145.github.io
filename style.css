@@ -11,6 +11,11 @@
     font-family: 'Segoe UI'
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
+
 body {
     background-color: #f4f4f9;
     color: #333;
@@ -253,4 +258,59 @@ dialog {
 .skill-front p {
     margin-top: auto;
     margin-bottom: 0px;
+}
+
+.toc {
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    width: 250px;
+    background-color: white;
+    border: 1px solid #dedede;
+    padding: 20px;
+    border-radius: 12px;
+    font-size: 14px;
+    z-index: 1000;
+}
+
+.toc-header {
+    cursor: pointer;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#toc-list {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 10px;
+    transition: max-height 1s ease;
+    overflow: hidden;
+    max-height: 500px;
+    font-size: 12pt;
+}
+
+#toc-list.collapsed {
+    max-height: 0;
+}
+
+.toc li {
+    margin-bottom: 8px;
+}
+
+.toc a {
+    text-decoration: none;
+    color: black;
+    transition: color 0.3s ease, font-weight 0.3s ease;
+}
+
+.toc a.active {
+    color: var(--dark-blue);
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.toc a:hover {
+    text-decoration: underline;
 }
