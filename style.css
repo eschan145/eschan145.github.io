@@ -41,6 +41,13 @@ h2 {
     font-weight: 600;
 }
 
+h4 {
+    font-size: 13pt;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
 hr {
     border: none;
     height: 1px;
@@ -313,4 +320,16 @@ dialog {
 
 .toc a:hover {
     text-decoration: underline;
+}
+
+.flex-container {
+    display: flex;
+    gap: 20px;
+}
+
+.column {
+    flex: 1;
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 12px;
 }
