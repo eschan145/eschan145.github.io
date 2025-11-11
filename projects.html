@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Website</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+    <header class="top-bar">
+        <nav class="nav-links">
+            <a href="index.html" class="nav-item"><img src="name.png" width="200"></a>
+            <a href="about.html" class="nav-item">About</a>
+            <a href="projects.html" class="nav-item">Projects</a>
+        </nav>
+    </header>
+    <div class="mainframe">
+        <div class="introduction">
+            <h1>Projects</h1>
+            <p style="font-size: 14pt">This page contains a number of projects I have previously or am currently working
+                on.
+            </p>
+        </div>
+
+        <div class="box">
+            <h2 id="test-scores">astro</h2>
+            <div style="height: 20px;"></div>
+            <p>This project is a rewrite of a space shooter game I first programmed at the age of ten, in fifth grade.
+                The original version was filled with what kind of code a ten year old programmer would write in cobbled
+                into 4,000 lines of Python. When I was in my freshman year of high school I decided to rewrite it from
+                scratch because I could not stand the original codebase.
+            </p>
+            <p>
+                The new version is built using Python and C++. Python is used as the front-end, such as object behaviors
+                and general game logic. C++ is used for performance-critical components because of the number of
+                on-screen objects, including physics, collision detection, raycasting, pathfinding, and various
+                trigonometric/mathematical functions.
+            </p>
+            <p>
+                C++ and Python are connected through a custom highly optimized C++ wrapper around the bare-bones
+                internal PyCore implentation of the Python C API. This wrapper removes all forms of error checking and
+                optimizes it to prioritize maximum runtime performance over safety.
+            </p>
+            <p>
+                The project is on GitHub under eschan145/astro but it is unfortunately not open source, although I do
+                have intention of making it so in the future. It is comprised of approximately 66% Python code, 31% C++,
+                and the remainder GLSL and other scripts.
+            </p>
+            <p>
+                <b>Features</b>:
+            <ul style="margin-left: 20px">
+                <li>Continuous collision detection with OOBBs. Broadphase is parallelized through the GPU with OpenCL,
+                    narrowphase
+                    is parallelized for multicore CPUs with OpenMP.</li>
+                <li>GPU-accelerated shaders and particles.</li>
+                <li>Advanced Vector Extensions (SIMD AVX2) optimized smart projectile targeting and raycasting.</li>
+                <li>Fully-featured world/map editor.</li>
+                <li>Serialization/deserialization of worlds with checksums and binary file storage.</li>
+                <li>High-performance physics, including explosion physics.</li>
+            </ul>
+            </p>
+
+            <div style="height: 20px"></div>
+            <hr>
+            <h3 style="text-align: center;">Gallery</h3>
+            <div style="height: 20px"></div>
+            <img src="Screenshot 2025-11-11 121705.png"
+                alt="Development of the game with Visual Studio Code. Normally I would have used Visual Studio but because the project had a lot of Python code I used Visual Studio Code instead. The Microsoft Visual C++ MSVC compiler was used to compile code with CMake as a build system."
+                id="dev-screenshot" data-title="Development screenshot" width="100%" style="cursor: pointer;">
+            <div style="height: 20px"></div>
+            <div class="gallery">
+                <img src="Screenshot 2025-10-17 091858.png"
+                    alt="Particle explosions, rigid body debris, and entities and projectiles of multiple types."
+                    data-title="Screenshot 1" width="200" style="cursor: pointer;">
+                <img src="Screenshot 2025-10-17 092010.png" alt="GPU-accelerated particle explosions."
+                    data-title="Screenshot 2" width="200" style="cursor: pointer;">
+                <img src="Screenshot 2025-10-17 092347.png" alt="Crowd performance demonstration."
+                    data-title="Screenshot 3" width="200" style="cursor: pointer;">
+
+            </div>
+            <div style="height: 20px"></div>
+            <div class="gallery">
+                <img src="Screenshot 2025-11-11 095415.png"
+                    alt="Crowd performance and health bar demonstration as well as CCD. Note projectiles are not tunneling through other objects despite the very fast speed they are moving."
+                    data-title="Screenshot 4" width="200" style="cursor: pointer;">
+                <img src="Screenshot 2025-11-11 095734.png" alt="Destroyed objects and crowd demonstration"
+                    data-title="Screenshot 5" width="200" style="cursor: pointer;">
+                <img src="Screenshot 2025-11-11 100210.png"
+                    alt="Crowd stress test with 3,203 rigid bodies and 1,828 projectile/spaceship entity objects."
+                    data-title="Screenshot 6" width="200" style="cursor: pointer;">
+            </div>
+        </div>
+    </div>
+    </div>
+    <div id="modal" class="modal">
+        <div class="modal-container">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px;">
+                <h2 class="title" style="margin: 0;"></h2>
+                <p class="close" style="font-size: 12pt;">&#9587;</p>
+            </div>
+            <hr style="
+    border: none;
+    height: 1px;
+    background-color: #dedede;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    width: calc(100% + 40px);
+    margin-left: -20px;
+    ">
+            <div class="modal-div">
+                <img class="modal-img" id="modal-img">
+                <div id="rightFrame">
+                    <p id="caption"></p>
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-top: auto; margin-bottom: 0;">
+                        <p id="index"></p>
+                        <div style="display: flex; gap: 5px;">
+                            <button class="inline-button" id="back">&#x2BC7; Back</button>
+                            <button class="inline-button" id="next">Next &#x2BC8;</button>
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</body>
+<script>
+    const modal = document.getElementById("modal");
+    const modalImg = document.getElementById("modal-img");
+    const title = document.querySelector(".title");
+    const caption = document.getElementById("caption");
+    const index = document.getElementById("index");
+    const images = document.querySelectorAll(".gallery img, #dev-screenshot");
+    const closeBtn = document.getElementsByClassName("close")[0];
+    const backBtn = document.getElementById("back");
+    const nextBtn = document.getElementById("next");
+
+    let currentImg = null;
+
+    function highlightActive(img) {
+        images.forEach(i => i.classList.remove("active-image"));
+        img.classList.add("active-image");
+    }
+
+    function showImage(img) {
+        modalImg.src = img.src;
+        const i = Array.from(images).indexOf(img);
+        index.innerHTML = `${i + 1} of ${images.length}`;
+        title.textContent = img.getAttribute("data-title") || "Media";
+        caption.innerHTML = img.alt + "<b>Click</b> on the image to expand it in a new tab.";
+        currentImg = img;
+        highlightActive(img);
+    }
+
+    images.forEach((img) => {
+        img.addEventListener("click", () => {
+            modal.style.display = "block";
+            showImage(img);
+        });
+    });
+
+    modalImg.addEventListener("click", (e) => {
+        e.stopPropagation();
+        if (currentImg) {
+            window.open(currentImg.src, "_blank");
+        }
+    });
+
+    backBtn.addEventListener("click", () => {
+        if (!currentImg) return;
+        let i = Array.from(images).indexOf(currentImg);
+        i = (i - 1 + images.length) % images.length;
+        showImage(images[i]);
+    });
+
+    nextBtn.addEventListener("click", () => {
+        if (!currentImg) return;
+        let i = Array.from(images).indexOf(currentImg);
+        i = (i + 1) % images.length;
+        showImage(images[i]);
+    });
+
+    closeBtn.onclick = () => {
+        modal.style.display = "none";
+        currentImg = null;
+        images.forEach(i => i.classList.remove("active-image"));
+    };
+
+    window.onclick = (event) => {
+        if (event.target === modal) {
+            modal.style.display = "none";
+            currentImg = null;
+            images.forEach(i => i.classList.remove("active-image"));
+        }
+    };
+
+    window.addEventListener("keydown", (e) => {
+        if (!currentImg) return;
+        if (e.key === "ArrowLeft") {
+            backBtn.click();
+        } else if (e.key === "ArrowRight") {
+            nextBtn.click();
+        } else if (e.key === "Escape") {
+            closeBtn.click();
+        }
+    });
+</script>
+
+</html>
