@@ -24,18 +24,18 @@
 				engineering.</p>
 		</div>
 
-		<div class="toc">
-			<div class="toc-header" onclick="toggleTOC()">
-				<h2>Table of Contents</h2><i id="toc-arrow" class="fas fa-chevron-down"></i>
+		<div class="toc-panel" id="toc-panel">
+			<div id="toc-list">
+				<h4 style="margin-bottom: 0;">Table of Contents</h4>
+				<hr style="margin-top: 0; margin-bottom: 0;">
+				<a class="toc-link" href="#about-me">About me</a><br>
+				<a class="toc-link" href="#education">Education</a><br>
+				<a class="toc-link" href="#skills">Skills</a><br>
+				<a class="toc-link" href="#test-scores">Test Scores</a><br>
 			</div>
-			<hr>
-			<ul id="toc-list">
-				<li><a href="#about-me">About me</a></li>
-				<li><a href="#education">Education</a></li>
-				<li><a href="#skills">Skills</a></li>
-				<li><a href="#test-scores">Test Scores</a></li>
-			</ul>
 		</div>
+
+		<i id="toc-arrow" class="fas fa-chevron-left" onclick="toggleTOC()"></i>
 
 		<div class="box">
 			<main>
@@ -377,12 +377,13 @@
 </body>
 <script>
 	function toggleTOC() {
-		const tocList = document.getElementById('toc-list');
+		const panel = document.getElementById('toc-panel');
 		const arrow = document.getElementById('toc-arrow');
-		tocList.classList.toggle('collapsed');
-		arrow.classList.toggle('fa-chevron-down');
-		arrow.classList.toggle('fa-chevron-up');
+		panel.classList.toggle('hidden');
+		arrow.classList.toggle('rotated');
 	}
+
+	toggleTOC();
 
 	const sections = document.querySelectorAll('h1, h2');
 	const tocLinks = document.querySelectorAll('.toc a');

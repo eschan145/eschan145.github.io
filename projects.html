@@ -65,6 +65,7 @@
             <div style="height: 20px"></div>
             <hr>
             <h3 style="text-align: center;">Gallery</h3>
+            <p>Click on an image to view its description</p>
             <div style="height: 20px"></div>
             <img src="Screenshot 2025-11-11 121705.png"
                 alt="Development of the game with Visual Studio Code. Normally I would have used Visual Studio but because the project had a lot of Python code I used Visual Studio Code instead. The Microsoft Visual C++ MSVC compiler was used to compile code with CMake as a build system."
@@ -106,27 +107,22 @@
     background-color: #dedede;
     margin-top: 5px;
     margin-bottom: 10px;
-    width: calc(100% + 40px);
-    margin-left: -20px;
+    width: 100%;
+    /* margin-left: -20px; */
     ">
             <div class="modal-div">
                 <img class="modal-img" id="modal-img">
-                <div id="rightFrame">
-                    <p id="caption"></p>
-                    <div
-                        style="display: flex; justify-content: space-between; align-items: center; margin-top: auto; margin-bottom: 0;">
-                        <p id="index"></p>
+                <div id="rightFrame" style="display: flex; flex-direction: column; width: 100%;">
+                    <p id="caption" style="width: 100%; box-sizing: border-box; margin: 0;"></p>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+                        <p id="index" style="margin: 0;"></p>
                         <div style="display: flex; gap: 5px;">
-                            <button class="inline-button" id="back">&#x2BC7; Back</button>
-                            <button class="inline-button" id="next">Next &#x2BC8;</button>
+                            <button class="inline-button" id="back" style="white-space: nowrap;">&#x2BC7; Back</button>
+                            <button class="inline-button" id="next" style="white-space: nowrap;">Next &#x2BC8;</button>
                         </div>
                     </div>
-
-
                 </div>
-
             </div>
-
         </div>
     </div>
 </body>

@@ -276,77 +276,89 @@ dialog {
     margin-bottom: 0px;
 }
 
-.toc {
+.toc-panel {
     position: fixed;
     top: 100px;
-    right: 20px;
-    width: 250px;
-    background-color: white;
+    right: 0;
+    width: 200px;
+    background: white;
     border: 1px solid #dedede;
-    padding: 20px;
     border-radius: 12px;
-    font-size: 14px;
+    padding-bottom: 20px;
+    margin-right: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.03);
+    transition: transform 0.6s ease;
     z-index: 1000;
 }
 
-.toc-header {
-    cursor: pointer;
-    font-weight: bold;
+.toc-link {
+    text-decoration: none;
+    color: black;
+}
+
+.toc-panel.hidden {
+    transform: translateX(2000px);
+}
+
+#toc-arrow {
+    position: fixed;
+    top: 100px;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    background: white;
+    border: 1px solid #dedede;
+    border-radius: 50%;
+    padding: 20px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    cursor: pointer;
+    z-index: 1001;
+    transition: transform 0.6s ease;
+}
+
+#toc-arrow.rotated {
+    transform: rotate(180deg);
 }
 
 #toc-list {
-    list-style: none;
-    padding-left: 0;
-    margin-top: 10px;
-    transition: max-height 1s ease;
-    overflow: hidden;
-    max-height: 500px;
-    font-size: 12pt;
+    margin: 0;
+    padding-left: 20px;
 }
 
-#toc-list.collapsed {
-    max-height: 0;
-}
-
-.toc li {
-    margin-bottom: 8px;
-}
-
-.toc a {
-    text-decoration: none;
-    color: black;
-    transition: color 0.3s ease, font-weight 0.3s ease;
-}
-
-.toc a.active {
-    color: var(--dark-blue);
-    font-weight: bold;
-    text-decoration: underline;
-}
-
-.toc a:hover {
-    text-decoration: underline;
+.toc-header {
+    display: none;
 }
 
 .flex-container {
     display: flex;
     gap: 20px;
+    flex-wrap: wrap;
 }
 
 .column {
     flex: 1;
+    min-width: 200px;
     background-color: #f0f0f0;
     padding: 20px;
     border-radius: 12px;
 }
 
+
+
 .gallery {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 30px;
+}
+
+.gallery img {
+    width: 200px;
+    max-width: 100%;
+    cursor: pointer;
+    border-radius: 8px;
 }
 
 .modal {
@@ -368,8 +380,8 @@ dialog {
     padding-left: 20px;
     padding-right: 20px;
     padding-bottom: 20px;
-    margin-left: 500px;
-    margin-right: 500px;
+    margin-left: min(70%, calc(5% + 10vw + 2vw));
+    margin-right: min(70%, calc(5% + 10vw + 2vw));
     margin-top: 100px;
     background-color: white;
     border: 1px solid #dedede;
@@ -386,6 +398,7 @@ dialog {
 .modal-img {
     max-width: 50%;
     height: auto;
+    object-fit: contain;
 }
 
 #rightFrame {
@@ -395,6 +408,7 @@ dialog {
     max-width: 50%;
     text-align: left;
 }
+
 
 .inline-button {
     background-color: white;
@@ -432,4 +446,40 @@ dialog {
 
 .images img {
     transition: box-shadow 0.5s ease, transform 0.3s ease;
+}
+
+@media (max-width: 1000px) {
+    .modal-container {
+        width: 90%;
+        margin: 50px auto !important;
+        padding: 10px;
+    }
+
+    .modal-div {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 10px !important;
+    }
+
+    .modal-img {
+        max-width: 100% !important;
+        height: auto;
+    }
+
+    #rightFrame {
+        max-width: 100% !important;
+        text-align: left;
+    }
+
+    .inline-button {
+        width: 45%;
+        margin: 0 2%;
+    }
+}
+
+@media (min-width: 1750px) {
+    .modal-container {
+        margin-left: 25%;
+        margin-right: 25%;
+    }
 }
