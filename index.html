@@ -373,10 +373,18 @@
 				</details>
 			</div>
 		</div>
-		<p>This webpage design takes much inspiration from that of LinkedIn.</p>
+		<p id="last-updated"></p>
+
 	</div>
 </body>
 <script>
+	const lastUpdated = new Date(document.lastModified);
+	const options = {
+		year: 'numeric', month: 'long', day: 'numeric',
+		hour: '2-digit', minute: '2-digit', second: '2-digit'
+	};
+	document.getElementById("last-updated").innerHTML = "This site was last updated on " + lastUpdated.toLocaleString(undefined, options) + ".";
+
 	function toggleTOC() {
 		const panel = document.getElementById('toc-panel');
 		const arrow = document.getElementById('toc-arrow');
