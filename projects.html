@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ethan Chan</title>
+    <title>Ethan Chan | Projects</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
@@ -21,7 +21,7 @@
 <body>
     <header class="top-bar">
         <nav class="nav-links">
-            <a href="index.html" class="nav-item"><img src="assets/name.png" width="200"></a>
+            <a href="index.html" class="nav-item"><img src="assets/name.png"></a>
             <a href="about.html" class="nav-item">About</a>
             <a href="projects.html" class="nav-item">Projects</a>
         </nav>
@@ -29,13 +29,13 @@
     <div class="mainframe">
         <div class="introduction">
             <h1>Projects</h1>
-            <p style="font-size: 14pt">This page contains a number of projects I have previously or am currently working
+            <p style="font-size: 15pt">This page contains a number of projects I have previously or am currently working
                 on.
             </p>
         </div>
 
         <div class="box">
-            <h2 id="test-scores">astro</h2>
+            <h2>astro</h2>
             <div style="height: 20px;"></div>
             <p>This project is a rewrite of a space shooter game I first programmed at the age of ten, in fifth grade.
                 The original version was filled with what kind of code a ten year old programmer would write in cobbled
@@ -96,14 +96,15 @@
                 <img src="assets/projects/Screenshot 2025-11-11 095415.png"
                     alt="Crowd performance and health bar demonstration as well as CCD. Note projectiles are not tunneling through other objects despite the very fast speed they are moving."
                     data-title="Screenshot 4" width="200" style="cursor: pointer;">
-                <img src="assets/projects/Screenshot 2025-11-11 095734.png" alt="Destroyed objects and crowd demonstration"
-                    data-title="Screenshot 5" width="200" style="cursor: pointer;">
+                <img src="assets/projects/Screenshot 2025-11-11 095734.png"
+                    alt="Destroyed objects and crowd demonstration" data-title="Screenshot 5" width="200"
+                    style="cursor: pointer;">
                 <img src="assets/projects/Screenshot 2025-11-11 100210.png"
                     alt="Crowd stress test with 3,203 rigid bodies and 1,828 projectile/spaceship entity objects."
                     data-title="Screenshot 6" width="200" style="cursor: pointer;">
             </div>
         </div>
-    </div>
+        <p id="last-updated"></p>
     </div>
     <div id="modal" class="modal">
         <div class="modal-container">
@@ -137,6 +138,13 @@
     </div>
 </body>
 <script>
+    const lastUpdated = new Date(document.lastModified);
+    const options = {
+        year: 'numeric', month: 'long', day: 'numeric',
+        hour: '2-digit', minute: '2-digit', second: '2-digit'
+    };
+    document.getElementById("last-updated").innerHTML = "This site was last updated on " + lastUpdated.toLocaleString(undefined, options) + ".";
+
     const modal = document.getElementById("modal");
     const modalImg = document.getElementById("modal-img");
     const title = document.querySelector(".title");
