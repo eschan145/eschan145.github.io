@@ -4,11 +4,23 @@
     --text-color: #ffffff;
 }
 
+@font-face {
+    font-family: "default";
+    src: url("assets/fonts/segoeui.ttf");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "default";
+    src: url("assets/fonts/seguisb.ttf");
+    font-weight: 600;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI'
+    font-family: "default"
 }
 
 html {
