@@ -106,7 +106,6 @@ b {
     color: #4f9fff;
 }
 
-/* Main Content */
 .mainframe {
     max-width: 1000px;
 
@@ -114,9 +113,11 @@ b {
     padding: 0 20px;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 600px) {
     .mainframe {
-        max-width: 90%;
+        margin: 0px auto;
+        max-width: 100%;
+        padding: 0px 10px;
     }
 }
 
