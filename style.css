@@ -315,6 +315,17 @@ dialog {
     margin-bottom: 0px;
 }
 
+.inline-skill {
+    display: inline-block;
+    border: 1px solid #dedede;
+    border-radius: 8px;
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    margin-right: 8px;
+}
+
 .toc-panel {
     position: fixed;
     top: 100px;
