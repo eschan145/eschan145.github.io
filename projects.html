@@ -31,10 +31,10 @@
         <div class="box">
             <h2>astro</h2>
             <div style="height: 20px;"></div>
-            <p>This project is a rewrite of a space shooter game I first programmed at the age of ten, in fifth grade.
-                The original version was filled with what kind of code a ten year old programmer would write in cobbled
-                into 4,000 lines of Python. When I was in my freshman year of high school I decided to rewrite it from
-                scratch because I could not stand the original codebase.
+            <p>This project is a significant rewrite of a space shooter game I first programmed at the age of ten, in
+                fifth grade. The original version was filled with what kind of code a ten year old programmer would
+                write in cobbled into 4,000 lines of Python. When I was in my freshman year of high school I decided to
+                rewrite it from scratch because I could not stand the original codebase.
             </p>
             <p>
                 The new version is built using Python and C++. Python is used as the front-end, such as object behaviors
@@ -56,13 +56,14 @@
                 <b>Features</b>:
             <ul style="margin-left: 20px">
                 <li>Continuous collision detection with OOBBs. Broadphase is parallelized through the GPU with OpenCL,
-                    narrowphase
-                    is parallelized for multicore CPUs with OpenMP.</li>
+                    narrowphase is parallelized for multicore CPUs with OpenMP.</li>
                 <li>GPU-accelerated shaders and particles.</li>
                 <li>Advanced Vector Extensions (SIMD AVX2) optimized smart projectile targeting and raycasting.</li>
                 <li>Fully-featured world/map editor.</li>
                 <li>Serialization/deserialization of worlds with checksums and binary file storage.</li>
                 <li>High-performance physics, including explosion physics.</li>
+                <li>Very easily extensible to add new objects and entity types with completely modular object and
+                    property system.</li>
             </ul>
             </p>
 
