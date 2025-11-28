@@ -1,14 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="refresh" content="0; url=https://ethanchan.tech" />
-        <title>Redirecting...</title>
-    </head>
-    <body>
-        <p>
-            If you are not redirected automatically,
-            <a href="https://ethanchan.tech">click here</a>.
-        </p>
-    </body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Redirecting...</title>
+  </head>
+  <style>
+    * {
+      font-family: "Segoe UI";
+      text-align: center;
+    }
+
+    button {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1rem;
+      padding: 10px 35px;
+      border: 1px solid #dedede;
+      background-color: #ffffff;
+      border-radius: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.6s ease;
+    }
+
+    button img {
+      width: 16px;
+      height: 16px;
+      object-fit: contain;
+    }
+
+    button:hover {
+      background-color: #d8d8d8ff;
+    }
+  </style>
+  <body>
+    <div style="margin: 25%">
+      <p id="message">
+        You will be redirected in <span id="countdown">3</span> seconds.
+      </p>
+      <p>
+        If you are not redirected automatically, please
+        <a href="https://ethanchan.tech">click here</a>.
+      </p>
+      <div style="height: 20px"></div>
+      <a href="mailto:esamuelchan@gmail.com"
+        ><button>Contact me<img src="popup.png" /></button
+      ></a>
+    </div>
+    <script>
+      const countdownElement = document.getElementById("countdown");
+      const redirectTime = 100000;
+      const startTime = Date.now();
+
+      const interval = setInterval(() => {
+        const elapsed = Date.now() - startTime;
+        const remaining = Math.max((redirectTime - elapsed) / 1000, 0);
+        countdownElement.textContent = remaining.toFixed(2);
+
+        if (elapsed >= redirectTime) {
+          clearInterval(interval);
+          countdownElement.textContent = "now";
+          document.getElementById("message").innerHTML =
+            "You will be redirected now.";
+          window.location.href = "https://ethanchan.tech";
+        }
+      }, 10);
+    </script>
+  </body>
 </html>
